@@ -44,7 +44,7 @@ function updateUI(showAmmo = false) {
   roundInfo.textContent = `라운드 ${round}`;
 
   if(currentTurn==="player" && showAmmo){
-    ammoInfo.textContent = `탄약: ${ammo.length}발 (실탄 ${ammo.filter(a=>a==="real").length}/가짜탄 ${ammo.filter(a=>a==="fake").length})`;
+    ammoInfo.textContent = `탄약: ${ammo.length}발 (실탄 ${ammo.filter(a=>a==="real").length}/공포탄 ${ammo.filter(a=>a==="fake").length})`;
     ammoInfo.style.display = "block";
     hideButtons();
     if(ammoTimeout) clearTimeout(ammoTimeout);
@@ -132,10 +132,10 @@ function shoot(shooter,target,isAI=false){
       else ai.hp-=damage;
     }
 
-    // 가짜탄 처리
+    // 공포탄 처리
     let keepTurn=false;
     if(bullet==="fake"){
-      message.textContent=`🔫 가짜탄! ${shooterName} → ${targetName}`;
+      message.textContent=`🔫 공포탄! ${shooterName} → ${targetName}`;
       if(shooter===target) keepTurn=true;
     }
 
@@ -164,7 +164,7 @@ function usePlayerItem(it){
   let icon="";
   if(it==="톱날") icon="🗡️";
   else if(it==="돋보기") icon="🔍";
-  else if(it==="담배") icon="🚬";
+  else if(it==="케이크") icon="🥞";
   else if(it==="맥주") icon="🍺";
   else if(it==="수갑") icon="⛓️";
   anim.textContent=`${icon} ${it}`;
@@ -283,3 +283,4 @@ aiBtn.onclick=()=>{ if(currentTurn==="player") shoot("player","ai"); };
 
 // 시작
 setupRound();
+
