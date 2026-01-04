@@ -164,7 +164,7 @@ function usePlayerItem(it){
   let icon="";
   if(it==="톱날") icon="🗡️";
   else if(it==="돋보기") icon="🔍";
-  else if(it==="케이크") icon="🥞";
+  else if(it==="담배") icon="🚬";
   else if(it==="맥주") icon="🍺";
   else if(it==="수갑") icon="⛓️";
   anim.textContent=`${icon} ${it}`;
@@ -283,4 +283,3 @@ aiBtn.onclick=()=>{ if(currentTurn==="player") shoot("player","ai"); };
 
 // 시작
 setupRound();
-
